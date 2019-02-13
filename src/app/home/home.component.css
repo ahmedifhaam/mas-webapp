@@ -22,3 +22,20 @@
   background-color: #4CAF50;
   color: white;
 }
+
+#table_container{
+  overflow-y: auto;
+  overflow-x: auto;
+}
+
+#predictor_container{
+  /*background-color: #1a1a1a;*/
+  border: #1a1a1a 2px solid;
+  padding: 10px;
+}
+
+#content{
+  /*background-color: #1a1a1a;*/
+  border: #1a1a1a 2px solid;
+  padding: 20px;
+}

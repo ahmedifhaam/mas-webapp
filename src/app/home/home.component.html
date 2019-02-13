@@ -1,14 +1,163 @@
-<h1>MAS Kreeda - Intimo</h1>
-<p>Data collection summaryweb app </p>
-<ul>
+
+<hr>
+<div class="container">
+  <div class="row justify-content-md-center">
+
+      <div class="col-lg-4">
+        Fabric :
+        <select [(ngModel)]="fabric" id="fa" (change)="refreshEntries($event)">
+          <option value="" disabled selected>select a fabric</option>
+          <option *ngFor="let item of fabrics" [value]="item">{{item}}</option>
+        </select>
+
+      </div>
+      <div class="col-lg-4">
+        Component :
+        <select [(ngModel)]="component" id="compo" (change)="refreshEntries($event)">
+          <option value="" disabled selected>select a component</option>
+          <option *ngFor="let item of components" [value]="item">{{item}}</option>
+        </select>
+      </div>
+      <div class="col-lg-4">
+        Size :
+        <select [(ngModel)]="size" id="si" (change)="refreshEntries($event)">
+          <option value="" disabled selected>select a size</option>
+          <option *ngFor="let item of sizes" [value]="item">{{item}}</option>
+        </select>
+      </div>
+
+
+  </div>
+
+</div><br><br>
+<!--*-->
+<div  class="container" *ngIf="component && fabric && size"   id="predictor_container" style="overflow: auto">
+  <div class="row">
+    <div class="col-lg-12">
+      <table id="predictions">
+        <tr>
+          <th>Cylinder Temp</th><th>S/M 1 Temp</th><th>S/M 2 Temp</th><th>S/M 3 Temp</th><th>S/M 4 Temp</th>
+
+          <th>S/M 5 Temp</th><th>S/M 6 Temp</th><th>S/M 7 Temp</th><th>S/M 8 Temp</th><th>S/M Avg Temp</th>
+
+          <th>Oil Temp</th><th>Env Temp</th><th>Humidity</th><th>Y/L 1</th><th>Y/L 2</th>
+          <th>Y/L 3</th><th>Y/L 4</th><th>Y/L 5</th><th>Y/L 6</th><th>Y/L 7</th><th>Y/L 8</th><th>Y/L Avg</th>
+          <th>Req L</th><th>Req W</th>
+        </tr>
+        <tr >
+
+          <!--<td><input type="text" value={{prediction_vals[0]}}/></td>-->
+          <!--<td><input type="text" value={{prediction_vals[1]}}/></td>-->
+          <!--<td><input type="text" value={{prediction_vals[2]}}/></td>-->
+          <!--<td><input type="text" value={{prediction_vals[3]}}/></td>-->
+          <!--<td><input type="text" value={{prediction_vals[4]}}/></td>-->
+          <!--<td><input type="text" value={{prediction_vals[5]}}/></td>-->
+          <!--<td><input type="text" value={{prediction_vals[6]}}/></td>-->
+          <!--<td><input type="text" value={{prediction_vals[7]}}/></td>-->
+          <!--<td><input type="text" value={{prediction_vals[8]}}/></td>-->
+          <!--<td><input type="text" value={{prediction_vals[9]}}/></td>-->
+          <!--<td><input type="text" value={{prediction_vals[10]}}/></td>-->
+          <!--<td><input type="text" value={{prediction_vals[11]}}/></td>-->
+          <!--<td><input type="text" value={{prediction_vals[12]}}/></td>-->
+          <!--<td><input type="text" value={{prediction_vals[13]}}/></td>-->
+          <!--<td><input type="text" value={{prediction_vals[14]}}/></td>-->
+          <!--<td><input type="text" value={{prediction_vals[15]}}/></td>-->
+          <!--<td><input type="text" value={{prediction_vals[16]}}/></td>-->
+          <!--<td><input type="text" value={{prediction_vals[17]}}/></td>-->
+          <!--<td><input type="text" value={{prediction_vals[18]}}/></td>-->
+          <!--<td><input type="text" value={{prediction_vals[19]}}/></td>-->
+          <!--<td><input type="text" value={{prediction_vals[20]}}/></td>-->
+          <!--<td><input type="text" value={{prediction_vals[21]}}/></td>-->
+          <!--<td><input type="text" value={{prediction_vals[22]}}/></td>-->
+          <!--<td><input type="text" value={{prediction_vals[23]}}/></td>-->
+          <td><input type="text" [(ngModel)] ="prediction_vals[0]"/></td>
+          <td><input type="text" [(ngModel)] ="prediction_vals[1]"/></td>
+          <td><input type="text" [(ngModel)] ="prediction_vals[2]"/></td>
+          <td><input type="text" [(ngModel)] ="prediction_vals[3]"/></td>
+          <td><input type="text" [(ngModel)] ="prediction_vals[4]"/></td>
+          <td><input type="text" [(ngModel)] ="prediction_vals[5]"/></td>
+          <td><input type="text" [(ngModel)] ="prediction_vals[6]"/></td>
+          <td><input type="text" [(ngModel)] ="prediction_vals[7]"/></td>
+          <td><input type="text" [(ngModel)] ="prediction_vals[8]"/></td>
+          <td><input type="text" [(ngModel)] ="prediction_vals[9]"/></td>
+          <td><input type="text" [(ngModel)] ="prediction_vals[10]"/></td>
+          <td><input type="text" [(ngModel)] ="prediction_vals[11]"/></td>
+          <td><input type="text" [(ngModel)] ="prediction_vals[12]"/></td>
+          <td><input type="text" [(ngModel)] ="prediction_vals[13]"/></td>
+          <td><input type="text" [(ngModel)] ="prediction_vals[14]"/></td>
+          <td><input type="text" [(ngModel)] ="prediction_vals[15]"/></td>
+          <td><input type="text" [(ngModel)] ="prediction_vals[16]"/></td>
+          <td><input type="text" [(ngModel)] ="prediction_vals[17]"/></td>
+          <td><input type="text" [(ngModel)] ="prediction_vals[18]"/></td>
+          <td><input type="text" [(ngModel)] ="prediction_vals[19]"/></td>
+          <td><input type="text" [(ngModel)] ="prediction_vals[20]"/></td>
+          <td><input type="text" [(ngModel)] ="prediction_vals[21]"/></td>
+          <td><input type="text" [(ngModel)] ="prediction_vals[22]"/></td>
+          <td><input type="text" [(ngModel)] ="prediction_vals[23]"/></td>
+
+        </tr>
+      </table>
+    </div>
+  </div>
+  <br>
+  <div class="row" style="margin: 20px;">
+    <div class="col-lg-5">
+      Predicted Length    : {{predictedvals.length.predicted_val.toFixed(3)}} <br>
+      Mean absolute Error : {{predictedvals.length.mae.toFixed(3)}}
+    </div>
+    <div class="col-lg-5">
+      Predicted Width     : {{predictedvals.width.predicted_val.toFixed(3)}}<br>
+      Mean absolute Error : {{predictedvals.width.mae.toFixed(3)}}
+    </div>
+    <div class="col-lg-2">
+      <button type="button" class="btn btn-dark btn-lg" (click)="predict_values()">Predict</button>
+    </div>
+
+
+  </div>
+</div>
+<br>
+
+<div id="content" *ngIf="component && fabric && size">
+
+
+
+  <div class="row">
+    <div class="col-lg-10">
+      <input type="file" name="photo" ng2FileSelect [uploader]="uploader" />
+    </div>
+    <div class="col-lg-2">
+      <button type="button" class="btn btn-success btn-s"
+              (click)="uploader.uploadAll()"
+              [disabled]="!uploader.getNotUploadedItems().length" >
+        Upload file
+      </button>
+    </div>
+  </div>
+  <div class="row" *ngIf="fileuploadedName">
+    <div class="col-lg-12">
+      <b>File name on the system : </b>{{fileuploadedName}} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <b>DB status : </b>{{dpupdatesuccess?'Updated':'Failed to Update'}} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <b>File Type : </b>{{fileType}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <b>File Size : </b>{{filesize}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </div>
+
+  </div>
+<br>
+
+<div class="row">
+
+<div class="col-lg-12" id="table_container">
+
   <table id="entries">
     <tr>
-      <th>Val1</th><th>Val2</th><th>Val3</th><th>Val4</th><th>Val5</th>
+      <th>Cylinder Temp</th><th>S/M 1 Temp</th><th>S/M 2 Temp</th><th>S/M 3 Temp</th><th>S/M 4 Temp</th>
 
-      <th>Val6</th><th>Val7</th><th>Val8</th><th>Val9</th><th>Val10</th>
+      <th>S/M 5 Temp</th><th>S/M 6 Temp</th><th>S/M 7 Temp</th><th>S/M 8 Temp</th><th>S/M Avg Temp</th>
 
-      <th>Val11</th><th>Val12</th><th>Val13</th><th>Val14</th><th>Val15</th>
-      <th>Val16</th><th>Val17</th><th>Val18</th><th>Val19</th><th>Val20</th>
+      <th>Oil Temp</th><th>Env Temp</th><th>Humidity</th><th>Y/L 1</th><th>Y/L 2</th>
+      <th>Y/L 3</th><th>Y/L 4</th><th>Y/L 5</th><th>Y/L 6</th><th>Y/L 7</th><th>Y/L 8</th><th>Y/L Avg</th>
+      <th>Req L</th><th>Req W</th><th>Out L</th><th>Out W</th>
     </tr>
   <tr *ngFor="let entry of entries">
 
@@ -18,7 +167,8 @@
       <td>{{entry.val11}}</td><td>{{entry.val12}}</td><td>{{entry.val13}}</td>
       <td>{{entry.val14}}</td><td>{{entry.val15}}</td><td>{{entry.val16}}</td>
       <td>{{entry.val17}}</td><td>{{entry.val18}}</td><td>{{entry.val19}}</td><td>{{entry.val20}}</td>
-
+    <td>{{entry.val21}}</td><td>{{entry.val22}}</td><td>{{entry.val23}}</td>
+    <td>{{entry.val24}}</td><td>{{entry.val25}}</td><td>{{entry.val26}}</td>
 
   </tr>
 
@@ -27,5 +177,6 @@
     <!--{{user.username}} ({{user.firstName}} {{user.lastName}})-->
      <!-- - <a (click)="deleteUser(user.id)" class="text-danger">Delete</a>-->
   <!--</li>-->
-</ul>
-
+</div>
+</div>
+</div>

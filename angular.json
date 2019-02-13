@@ -20,6 +20,7 @@
             "tsConfig": "src/tsconfig.app.json",
             "assets": [
               "src/favicon.ico",
+              "src/Mas_Holdings_Logo.png",
               "src/assets"
             ],
             "styles": [
@@ -83,6 +84,7 @@
             ],
             "scripts": [],
             "assets": [
+              "src/Mas_Holdings_Logo.png",
               "src/favicon.ico",
               "src/assets"
             ]

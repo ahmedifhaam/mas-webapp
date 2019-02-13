@@ -1,5 +1,8 @@
 export class entry{
   id:number;
+  component:string;
+  size:string;
+  fabric:string;
   val1:number;
   val2:number;
   val3:number;
@@ -20,4 +23,10 @@ export class entry{
   val18:number;
   val19:number;
   val20:number;
+  val21:number;
+  val22:number;
+  val23:number;
+  val24:number;
+  val25:number;
+  val26:number;
 }

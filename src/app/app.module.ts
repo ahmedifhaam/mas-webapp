@@ -4,7 +4,7 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
-import {ReactiveFormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 
 import {AuthGuard} from "./_guards/auth.guard";
@@ -14,7 +14,7 @@ import {JwtInterceptor} from "./_helpers/jwt.interceptor";
 import {ErrorInterceptor} from "./_helpers/error.interceptor";
 import {routing} from "./app-routing.module";
 import {AlertComponent} from "./_directive/alert.component";
-
+import {FileSelectDirective} from "ng2-file-upload";
 
 @NgModule({
   imports: [
@@ -22,6 +22,7 @@ import {AlertComponent} from "./_directive/alert.component";
     ReactiveFormsModule,
     HttpClientModule,
     routing,
+    FormsModule
 
   ],
   declarations: [
@@ -29,7 +30,9 @@ import {AlertComponent} from "./_directive/alert.component";
     AppComponent,
     HomeComponent,
     LoginComponent,
-    AlertComponent
+    AlertComponent,
+    FileSelectDirective,
+
 
   ],
   providers: [
